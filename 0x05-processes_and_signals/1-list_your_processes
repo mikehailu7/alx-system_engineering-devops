@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This project will display process which are active
+# Author: MikiasHailu
+
+ps -auxf

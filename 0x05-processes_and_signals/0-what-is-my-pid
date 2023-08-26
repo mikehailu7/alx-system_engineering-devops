@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This process will display its pid
+# Author: MikiasHailu
+
+echo $$

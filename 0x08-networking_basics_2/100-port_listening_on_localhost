@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This will listens on port 98 on localhost
+# Author: MikiasHailu
+
+nc -l 98

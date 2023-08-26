@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Author: MikiasHailu
+for ((m=1;m<=100;m++))
+do
+    if ((m % 15 == 0))
+    then
+        echo "FizzBuzz"
+    elif ((m % 3 == 0))
+    then
+        echo "Fizz"
+    elif ((m % 5 == 0))
+    then
+        echo "Buzz"
+    else
+        echo "$m"
+    fi
+done

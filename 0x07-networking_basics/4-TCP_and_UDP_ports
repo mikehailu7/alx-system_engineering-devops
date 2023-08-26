@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This will display listining ports
+# Author: MikiasHailu
+
+sudo netstat -lp

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Author: MikiasHailu
+m=1
+while [ $m -le 10 ]
+do
+	echo "Best School"
+	if [ $m -eq 9 ]; then
+	   echo "Hi"
+	fi
+	m=$((m+1))
+done

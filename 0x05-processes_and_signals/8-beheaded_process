@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This process will the process above
+# Author: MikiasHailu
+
+pkill -f -SIGKILL 7-highlander

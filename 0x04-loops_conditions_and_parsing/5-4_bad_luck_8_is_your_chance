@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Author: MikiasHailu
+m=1
+while [ $m -le 10 ]
+do
+	if [ $m -eq 4 ]; then
+	   echo "bad luck"
+	elif [ $m -eq 8 ]; then
+	   echo "good luck"
+	else
+	   echo "Best School"
+	fi
+	m=$((m+1))
+done

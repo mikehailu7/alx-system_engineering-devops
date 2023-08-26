@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This project will displays lines that the bash word contains
+# Author: MikiasHailu
+
+ps -aux | grep bash

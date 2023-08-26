@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This wll display a pid with a name of word bash
+# Author: MikiasHailu
+
+pgrep bash -l

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This will change the facebook.com to 8.8.8.8
+# This will change the localhost to 120.0.0.2
+# Author: mikiasHailu 
+
+cp /etc/hosts ~/hosts.new
+sed -i 's/127.*$/127.0.0.2 localhost\n8.8.8.8 facebook.com/' ~/hosts.new
+cp -f ~/hosts.new /etc/hosts
