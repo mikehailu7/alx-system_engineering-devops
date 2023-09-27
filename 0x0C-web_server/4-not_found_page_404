@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 # Author: Mikias Hailu
 # THis will config your Nginx server to have a custom 404 page
+
 apt-get update
 apt-get install -y nginx
+service nginx start
 mkdir /etc/nginx/html
+
 touch /etc/nginx/html/index.html
 echo "Hello World!" > /etc/nginx/html/index.html
 touch /etc/nginx/html/404.html
