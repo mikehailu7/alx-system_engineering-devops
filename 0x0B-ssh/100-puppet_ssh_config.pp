@@ -5,6 +5,6 @@ file { 'ect/ssh/ssh_cofig':
 content =>"
 	host*
 	IdentityFile ~/.ssh/school
-	PasswordAuthenticaiton no
+	PasswordAuthentication no
 	",
 }
