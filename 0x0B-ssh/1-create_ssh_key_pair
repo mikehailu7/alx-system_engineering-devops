@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
-# Author: MikiasHailu
-# This will create an RSA key pair.
-ssh-keygen -f holberton -b 4096 -N betty
+#Author: MikiasHailu
+ssh-keygen -b 4096 -N betty -f school
