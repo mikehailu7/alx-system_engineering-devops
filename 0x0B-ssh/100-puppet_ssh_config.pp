@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Author: MikiasHailu
+#Author: MikiasHailu
 
 file { 'ect/ssh/ssh_cofig':
-	ensure => present,
+ensure => present,
 
 content =>"
 
