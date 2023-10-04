@@ -1,14 +1,14 @@
-# This will make changes to the configuration of file using Puppet
+#!/usr/bin/env bash
 # Author: MikiasHailu
-include stdlib
-file_line { 'Refuse to authenticate using a password':
-  ensure => present,
-  path   => '/etc/ssh/ssh_config',
-  line   => 'PasswordAuthentication no',
-}
 
-file_line { 'Use private key':
-  ensure => present,
-  path   => '/etc/ssh/ssh_config',
-  line   => 'IdentityFile ~/.ssh/school'
+file { 'ect/ssh/ssh_cofig':
+ensure => present,
+
+content =>"
+
+	#SSH client configuration
+	host*
+	IdentityFile ~/.ssh/school
+	PasswordAuthentication no
+	",
 }
