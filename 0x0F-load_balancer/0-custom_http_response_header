@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
+<<<<<<< HEAD
+# Author: Mikias Hailu
+# Configure Nginx so that its HTTP response contains a custom header
+# HTTP response contains a custom header (on web-01 and web-02)
+=======
 # Author: MikiasHailu
+>>>>>>> 993011f711fbd4f72a7440a5c8897b504ed9a210
 var=$(hostname)
 new_string="error_page 404 \/custom_404.html;\n location \/redirect_me {\n return 301 \$scheme:\/\/www.google.com;"
 new_string2="server {\n\tadd_header X-Served-By $var;"
