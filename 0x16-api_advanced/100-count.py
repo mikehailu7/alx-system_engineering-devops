@@ -2,46 +2,43 @@
 # Author: MikiasHailu
 """ This is the count_words Module """
 
-def count_words(subreddit, word_list, word_count={}, after=None):
-	""" This fucntion queries the Reddit API and returns the count of words in
-	word_list """
-	import requests
+import requests
 
-	sub_info = requests.get("https://www.reddit.com/r/{}/hot.json"
-			.format(subreddit),
-			params={"after": after},
-			headers={"User-Agent": "My-User-Agent"},
-			allow_redirects=False)
-	if sub_info.status_code != 200:
-	return None
 
-info = sub_info.json()
+def count_words(subreddit, word_list, after=None, counts={}):
+	base_url = f"https://www.reddit.com/r/{subreddit}/hot.json"
+	headers = {"User-agent": "reddit-count-words-bot"}
+	params = {"limit": 100, "after": after} if after else {"limit": 100}
 
-	hot_l = [child.get("data").get("title")
-	for child in info
-	.get("data")
-	.get("children")]
-	if not hot_l:
-	return None
+response = requests.get(
+		base_url, headers=headers, params=params, allow_redirects=False
+		)
 
-word_list = list(dict.fromkeys(word_list))
+	if response.status_code != 200:
+	return
 
-	if word_count == {}:
-	word_count = {word: 0 for word in word_list}
+data = response.json()
+	posts = data["data"]["children"]
 
-	for title in hot_l:
-	split_words = title.split(' ')
+	for post in posts:
+	title = post["data"]["title"]
+title_lower = title.lower()
 	for word in word_list:
-	for s_word in split_words:
-	if s_word.lower() == word.lower():
-		word_count[word] += 1
+word_lower = word.lower()
+	if word_lower in title_lower:
+	counts[word_lower] = counts.get(word_lower, 0) + title_lower.count(
+			word_lower
+			)
 
-		if not info.get("data").get("after"):
-	sorted_counts = sorted(word_count.items(), key=lambda kv: kv[0])
-sorted_counts = sorted(word_count.items(),
-		key=lambda kv: kv[1], reverse=True)
-	[print('{}: {}'.format(k, v)) for k, v in sorted_counts if v != 0]
+	next_after = data["data"]["after"]
+	if next_after:
+count_words(subreddit, word_list, next_after, counts)
 	else:
-	return count_words(subreddit, word_list, word_count,
-			info.get("data").get("after"))
+sorted_counts = sorted(counts.items(), key=lambda item: (-item[1], item[0]))
+	for word, count in sorted_counts:
+	print(f"{word}: {count}")
+
+
+# Example usage
+	count_words("python", ["python", "java", "javascript"])
 
