@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-"""Module for task 0"""
-
+# Author: MikiasHailu
+""" This Module is for the number of subscribers """
 
 def number_of_subscribers(subreddit):
-	"""Queries the Reddit API and returns the number of subscribers
-		to the subreddit"""
+	""" This fucntion will queries the Reddit API and returns the number of subscribers """
 		import requests
 
 		sub_info = requests.get("https://www.reddit.com/r/{}/about.json"
