@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-"""Module for task 3"""
-
+# Author: MikiasHailu
+""" This is the count_words Module """
 
 def count_words(subreddit, word_list, word_count={}, after=None):
-	"""Queries the Reddit API and returns the count of words in
-	word_list in the titles of all the hot posts
-	of the subreddit"""
+	""" This fucntion queries the Reddit API and returns the count of words in
+	word_list """
 	import requests
 
 	sub_info = requests.get("https://www.reddit.com/r/{}/hot.json"
@@ -45,3 +44,4 @@ sorted_counts = sorted(word_count.items(),
 	else:
 	return count_words(subreddit, word_list, word_count,
 			info.get("data").get("after"))
+
