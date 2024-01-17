@@ -44,4 +44,3 @@ sorted_counts = sorted(word_count.items(),
 	else:
 	return count_words(subreddit, word_list, word_count,
 			info.get("data").get("after"))
-
