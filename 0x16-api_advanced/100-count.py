@@ -37,8 +37,3 @@ count_words(subreddit, word_list, next_after, counts)
 sorted_counts = sorted(counts.items(), key=lambda item: (-item[1], item[0]))
 	for word, count in sorted_counts:
 	print(f"{word}: {count}")
-
-
-# Example usage
-	count_words("python", ["python", "java", "javascript"])
-
